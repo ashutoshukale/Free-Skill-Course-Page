@@ -1,0 +1,344 @@
+:root {
+    --primary-color: #6a11cb;
+    --secondary-color: #2575fc;
+    --background-color: #f4f7f6;
+    --text-color: #2c3e50;
+    --sidebar-width: 15rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.app-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: var(--sidebar-width);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 20px;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.sidebar-header .logo {
+    width: 50px;
+    margin-right: 15px;
+}
+
+.nav-menu {
+    list-style: none;
+}
+
+.nav-item {
+    margin-bottom: 15px;
+}
+
+.nav-link {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.nav-link i {
+    margin-right: 15px;
+    font-size: 1.2rem;
+}
+
+.nav-link.active, .nav-link:hover {
+    color: white;
+    transform: translateX(10px);
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: var(--background-color);
+    margin-left: 2.5rem;
+    transition: all 0.3s ease;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.search-bar {
+    position: relative;
+    flex-grow: 1;
+    margin-right: 20px;
+}
+
+.search-bar i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px 10px 10px 35px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+}
+
+.notification {
+    position: fixed;
+    top: 20px;
+    right: -300px; 
+    background-color: rgba(0, 123, 255, 0.9);
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 1000;
+    transition: right 0.5s ease-in-out; 
+}
+
+.notification.success {
+    background-color: #28a745; 
+}
+
+.notification.error {
+    background-color: #dc3545; 
+}
+
+
+.notification.show {
+    right: 20px; 
+}
+
+.notification.hide {
+    right: -300px;
+}
+
+.notification-btn {
+    position: relative;
+    background: none;
+    border: none;
+    margin-right: 20px;
+}
+
+.notification-btn .badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.7rem;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.user-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.course-overview {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.course-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.stat-card {
+    display: flex;
+    align-items: center;
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+    width: 48%;
+}
+
+.stat-card i {
+    font-size: 2rem;
+    margin-right: 15px;
+    color: var(--primary-color);
+}
+
+.learning-content {
+    margin-top: 20px;
+}
+
+.video-player {
+    position: relative;
+    width: 100%;  
+    height: 400px; 
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.video-player iframe {
+    width: 100%; 
+    height: 100%; 
+    border: none; 
+}
+
+.curriculum-section .curriculum-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.curriculum-item.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.curriculum-scrollable {
+    max-height: 300px; 
+    overflow-y: auto; 
+    margin-top: 10px; 
+}
+
+.additional-tools {
+    margin-top: 20px;
+}
+
+/* Authentication Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-container {
+    background: white;
+    border-radius: 10px;
+    width: 400px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.modal-body input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.auth-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.auth-actions button {
+    flex-grow: 1;
+    margin: 0 5px;
+}
+
+#auth-error {
+    margin-top: 10px;
+}
+
+/* Stars Rating Styles */
+.rating {
+    display: flexbox;
+    cursor: pointer;
+    direction:rtl
+}
+
+.star {
+    font-size: 1.5rem;
+    color: lightgray;
+}
+
+.star:hover, .star:hover ~ .star {
+    color: gold;
+}
+
+.star.selected {
+    color: gold;
+}
+
+#ratingValue {
+    margin-right: 10px;
+}
+
+/* Notes Section */
+#savedNotes {
+    margin-top: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 80px;
+    }
+    .main-content {
+        margin-left: 80px;
+    }
+    .nav-menu span {
+        display: none;
+    }
+}
